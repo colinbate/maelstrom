@@ -1,2 +1,18 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<main>
+  <img src="/maelstrom.webp" alt="an icon of a lock in a whirling maelstrom" width="820" height="820">
+</main>
+
+<style>
+  :global(body) {
+    height: 100svh;
+  }
+  main {
+    display: grid;
+    place-items: center;
+    inset: 0;
+    height: 100%;
+  }
+  img {
+    max-width: 100%;
+  }
+</style>
