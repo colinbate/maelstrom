@@ -16,7 +16,7 @@ export const handle: Handle = async ({ event, resolve }) => {
   try {
     const validator = generateValidator({ domain: TEAM_DOMAIN, aud: AUD });
     const { jwt, payload } = await validator(event.request);
-    event.locals.user = payload;
+    event.locals.user = payload?.email;
     const response = await resolve(event);
     return response;
   } catch (err: unknown) {

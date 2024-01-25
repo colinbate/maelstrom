@@ -1,4 +1,4 @@
-import type { Identity, PluginArgs } from './types';
+import type { Identity, JWTPayload, PluginArgs } from './types';
 
 export const getIdentity = async ({
   jwt,
@@ -61,10 +61,10 @@ export const generateValidator =
     request: Request
   ): Promise<{
     jwt: string;
-    payload: object;
+    payload: JWTPayload | null;
   }> => {
     const jwt = extractJWTFromRequest(request);
-    if (!jwt) return { jwt: '', payload: {} };
+    if (!jwt) return { jwt: '', payload: null };
     const parts = jwt.split('.');
     if (parts.length !== 3) {
       throw new Error('JWT does not have three parts.');
