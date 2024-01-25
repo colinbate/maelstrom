@@ -1,5 +1,11 @@
+<script lang="ts">
+  import type { PageData } from "./$types";
+  let {data} = $props<{data: PageData}>();
+</script>
+
 <main>
   <img src="/maelstrom.webp" alt="an icon of a lock in a whirling maelstrom" width="820" height="820">
+  <pre>{JSON.stringify(data, null, 2)}</pre>
 </main>
 
 <style>
